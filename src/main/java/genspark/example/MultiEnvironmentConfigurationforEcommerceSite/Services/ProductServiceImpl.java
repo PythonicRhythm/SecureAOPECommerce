@@ -94,14 +94,26 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<Product> addMutlipleProduct(List<Product> products, int amount) {
-        logger.info(String.format("Attempting to add Products: %s times %d", products,amount));
-        List<Product> newProducts = new ArrayList<>();
-        for(Product product: product()){
-            for(int i =0; i<amount; i++){
-                newProducts.add(product);
+        List<Product> addedProducts = new ArrayList<>();
+
+        // Ensure num is positive and greater than 0
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Number of products to add must be greater than 0");
+        }
+
+        for (Product product : products) {
+            for (int i = 0; i < amount; i++) {
+                Product newProduct = new Product();
+                newProduct.setName(product.getName());
+                newProduct.setPrice(product.getPrice());
+                newProduct.setDescription(product.getDescription());
+                newProduct.setCategories(product.getCategories());
+
+
+                addedProducts.add(productDao.save(newProduct));
             }
         }
-        return this.productDao.saveAll(newProducts);
+        return addedProducts;
     }
 
     @Override
