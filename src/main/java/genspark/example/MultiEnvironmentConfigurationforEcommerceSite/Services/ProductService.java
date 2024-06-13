@@ -5,13 +5,13 @@ import java.util.List;
 public interface ProductService {
     List<Product> getAllProducts();
     List<Product> getBySellers(String seller);
-    List<Product> getById();
-    List<Product> getByName();
+    List<Product> getById(long id);
+    List<Product> getByName(String name);
     List<String> getByNames();
     List<String> getBySellers();
-    List<Product> getByCategory();
+    List<Product> getByCategory(String category);
     List<Product> getBySorted();
-    Product addMutlipleProduct(String name, int amount);
+    List<Product> addMultipleProduct(List<Product> products, int amount);
     List<Product> addProduct();
     List<Product> updateProduct();
     String deleteProduct();
