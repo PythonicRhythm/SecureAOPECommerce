@@ -155,8 +155,8 @@ public class ProductController {
         }
 
         // Create sorting links
-        allHTML.append("<a href=\"/products/names\"><button>Sort by Name</button></a>");
-        allHTML.append("<a href=\"/products/sellers\"><button>Sort by Seller</button></a>");
+        allHTML.append("<a href=\"/products/names/sorted\"><button>Sort by Name</button></a>");
+        allHTML.append("<a href=\"/products/sellers/sorted\"><button>Sort by Seller</button></a>");
         allHTML.append("<a href=\"/products\"><button>Default ID Sort</button></a>");
 
         // Close header container
@@ -269,7 +269,7 @@ public class ProductController {
 
     // retrieve all products sorted by names
     @GetMapping("/products/names/sorted")
-    public List<Product> getSortedNames(){
+    public String getSortedNames(){
         List<Product> listOfProducts = this.ps.getBySortedName();
 
         if (listOfProducts.isEmpty()){
@@ -277,10 +277,10 @@ public class ProductController {
         } else {
             logger.info("Successfully Retrieved All Products In Sorted Orders of Name");
         }
-        return listOfProducts;
+        return productPanelBuilder(listOfProducts);
     }
     @GetMapping("/products/sellers/sorted")
-    public List<Product> getSortedSellers(){
+    public String getSortedSellers(){
         List<Product> listOfProducts = this.ps.getBySortedSeller();
         if (listOfProducts.isEmpty()){
             logger.info("There Is Currently No Product In The Database");
