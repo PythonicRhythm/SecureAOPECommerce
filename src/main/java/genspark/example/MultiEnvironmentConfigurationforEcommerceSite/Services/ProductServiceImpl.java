@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static org.yaml.snakeyaml.nodes.Tag.STR;
 
 @Service
 public class ProductServiceImpl implements ProductService{

@@ -20,7 +20,7 @@ public interface ProductDAO extends JpaRepository<Product, Long> {
     @Query("SELECT DISTINCT product.name FROM Product product")
     List<String> findByNames();
 
-    @Query("SELECT DISTINCT product.sellers FROM Product product")
+    @Query("SELECT DISTINCT product.seller FROM Product product")
     List<String> findBySellers();
 
     //Sort by name / Sort by sellers

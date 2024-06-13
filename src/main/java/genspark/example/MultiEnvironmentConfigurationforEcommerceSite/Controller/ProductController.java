@@ -136,7 +136,7 @@ public class ProductController {
 
     // add multiple of same product(s) with validation
     // POST ... /products?num=5
-    @PostMapping("/products")
+    @PostMapping("/products/multiple")
     public List<Product> addProducts(@Valid @RequestBody List<Product> products,
                                     @RequestParam int num,
                                     BindingResult result){
