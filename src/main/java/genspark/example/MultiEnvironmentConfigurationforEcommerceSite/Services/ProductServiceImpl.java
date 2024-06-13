@@ -52,15 +52,16 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<String> getByNames() {
+    public List<Product> getByNames() {
         logger.info("Attempting to retrieve all products by Name:");
-        return this.productDao.findByNames();
+
+        return this.productDao.findProductsByNameSort();
     }
 
     @Override
-    public List<String> getBySellers() {
+    public List<Product> getBySellers() {
         logger.info("Attempting to retrieve all products by Seller:");
-        return this.productDao.findBySellers();
+        return this.productDao.findProductsBySellerSort();
     }
 
     @Override

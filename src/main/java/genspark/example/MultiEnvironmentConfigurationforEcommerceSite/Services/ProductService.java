@@ -9,8 +9,8 @@ public interface ProductService {
     List<Product> getBySellers(String seller);
     Product getById(long productID);
     List<Product> getByName(String name);
-    List<String> getByNames();
-    List<String> getBySellers();
+    List<Product> getByNames();
+    List<Product> getBySellers();
     List<Product> getByCategory(String category);
     List<Product> getBySortedName();
     List<Product> getBySortedSeller();
