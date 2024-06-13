@@ -12,9 +12,11 @@ public interface ProductService {
     List<String> getByNames();
     List<String> getBySellers();
     List<Product> getByCategory(String category);
-    List<Product> getBySorted();
+    List<Product> getBySortedName();
+    List<Product> getBySortedSeller();
     List<Product> addMutlipleProduct(List<Product> products, int amount);
-    List<Product> addProduct(List<Product> products);
+    List<Product> addProducts(List<Product> products);
+    Product addProduct(Product product);
     List<Product> updateProduct(List<Product> products);
     String deleteProduct(long productID);
 }

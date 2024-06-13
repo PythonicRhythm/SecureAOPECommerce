@@ -11,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -41,13 +43,23 @@ public class ProductController {
     }
 
     // retrieve all products sorted by names
-    @GetMapping("/products/sorted")
-    public List<Product> getSortedProducts(){
-        List<Product> listOfProducts = this.ps.getBySorted();
+    @GetMapping("/products/names/sorted")
+    public List<Product> getSortedNames(){
+        List<Product> listOfProducts = this.ps.getBySortedName();
         if (listOfProducts.isEmpty()){
             logger.info("There Is Currently No Product In The Database");
         } else {
-            logger.info("Successfully Retrieved All Products In Sorted Orders");
+            logger.info("Successfully Retrieved All Products In Sorted Orders of Name");
+        }
+        return listOfProducts;
+    }
+    @GetMapping("/products/sellers/sorted")
+    public List<Product> getSortedSellers(){
+        List<Product> listOfProducts = this.ps.getBySortedSeller();
+        if (listOfProducts.isEmpty()){
+            logger.info("There Is Currently No Product In The Database");
+        } else {
+            logger.info("Successfully Retrieved All Products In Sorted Orders of Sellers");
         }
         return listOfProducts;
     }
@@ -127,7 +139,7 @@ public class ProductController {
             // if fails print error and its location
             logger.error("Validation Failed: "+ result.getAllErrors());
         } else {
-            List<Product> listOfProducts = this.ps.addProduct(products);
+            List<Product> listOfProducts = this.ps.addProducts(products);
             logger.info("Successfully Added Products");
             return listOfProducts;
         }
@@ -135,12 +147,11 @@ public class ProductController {
     }
 
     // add multiple of same product(s) with validation
-    // POST ... /products?num=5
+    // POST ... /products/multiple?num=5
     @PostMapping("/products/multiple")
     public List<Product> addProducts(@Valid @RequestBody List<Product> products,
                                     @RequestParam int num,
                                     BindingResult result){
-
         logger.info("Attempting to Add Products");
         // Validate the inputs to see if there's any error
         validator.validate(products,result);
@@ -148,7 +159,12 @@ public class ProductController {
             // if fails print error and its location
             logger.error("Validation Failed: "+ result.getAllErrors());
         } else {
-            List<Product> listOfProducts = this.ps.addMutlipleProduct(products,num);
+            List<Product> listOfProducts = new ArrayList<>();
+            for (int i = 0; i < num; i++){
+                for (Product product : products){
+                    this.ps.addProduct(product);
+                }
+            }
             logger.info("Successfully Added Products");
             return listOfProducts;
         }
