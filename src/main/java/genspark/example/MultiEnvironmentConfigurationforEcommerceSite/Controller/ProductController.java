@@ -1,5 +1,6 @@
 package genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Controller;
 
+import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product;
 import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Validation.ProductValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static java.lang.StringTemplate.STR;
@@ -26,51 +28,54 @@ public class ProductController {
         return "<h1>Welcome to your Ecommerce</h1>";
     }
 
-    // To get all the books Json
+    // retrieve all products
     @GetMapping("/products")
     public List<Product> getProducts(){
         return this.ps.getAllProducts();
     }
+
+    // retrieve all products sorted by names
     @GetMapping("/products/sorted")
     public List<Product> getSortedProducts(){
-        return this.ps.getSortedProducts();
+        return this.ps.getBySorted();
     }
 
-    // Get Book Json based on name of the book
+    // Get product based on name
     @GetMapping("/products/name")
     public List<Product> getProductByName(@RequestParam String name) {
-        return this.ps.getProductByName(name);
+        return this.ps.getByName(name);
     }
 
+    // Get all the names of all the products
     @GetMapping("/products/names")
     public List<String> getAllProductNames() {
-        return this.ps.getProductByNames();
+        return this.ps.getByNames();
     }
 
-    // Get Book Json based on name of the author   HOW TO USE (http://localhost:9090/Books/author?author=orw)
+    // Get product based on sellers   HOW TO USE (http://localhost:9090/products/seller?seller=orw)
     @GetMapping("/products/seller")
     public List<Product> getProductBySeller(@RequestParam String seller) {
-        return this.ps.getProductBySeller(seller);
+        return this.ps.getBySeller(seller);
     }
-
+    // get all the name of sellers
     @GetMapping("/products/sellers")
     public List<String> getAllProductSellers() {
-        return this.ps.getProductBySellers();
+        return this.ps.getBySellers();
     }
 
-    // Get Book Json based on ONE of the genre
+    // Get product based on category
     @GetMapping("/products/category/{category}")
     public List<Product> getProductByCategory(@PathVariable String category) {
-        return this.ps.getProductByCategory(category);
+        return this.ps.getByCategory(category);
     }
 
-    // get book by id
+    // Get product based on id
     @GetMapping("/products/{productId}")
     public Product getProductById(@PathVariable Long productId) {
-        return this.ps.getProductById(productId);
+        return this.ps.getById(productId);
     }
 
-    // add a new book
+    // add new product(s) with validation
     @PostMapping("/products")
     public List<Product> addProduct(@Valid @RequestBody List<Product> products, BindingResult result){
         logger.info("Attempting to Add Products");
@@ -78,7 +83,7 @@ public class ProductController {
         validator.validate(products,result);
         if (result.hasErrors()){
             // if fails print error and its location
-            logger.error(STR."Validation Failed: \{result.getAllErrors()}");
+            logger.error("Validation Failed: "+ result.getAllErrors());
         } else {
             List<Product> listOfProducts = this.ps.addProduct(products);
             logger.info("Successfully Added Products");
@@ -87,14 +92,45 @@ public class ProductController {
         return null;
     }
 
-    // update a book
-    @PutMapping("/products")
-    public Product updateProduct(@RequestBody Product product){
-        return this.ps.updateProduct(product);
+    // update product(s) with validation
+    @PostMapping("/products")
+    public List<Product> addProduct(@Valid @RequestBody List<Product> products,
+                                    @RequestParam int num,
+                                    BindingResult result){
+
+        logger.info("Attempting to Add Products");
+        // Validate the inputs to see if there's any error
+        validator.validate(products,result);
+        if (result.hasErrors()){
+            // if fails print error and its location
+            logger.error("Validation Failed: "+ result.getAllErrors());
+        } else {
+            List<Product> listOfProducts = this.ps.addMultipleProduct(products,num);
+            logger.info("Successfully Added Products");
+            return listOfProducts;
+        }
+        return null;
     }
 
-    // delete a book
+    // add multiple of same product(s) with validation
+    // POST ... /products?num=5
+    @PutMapping("/products")
+    public List<Product> addProduct(@Valid @RequestBody List<Product> products, BindingResult result){
+        logger.info("Attempting to Update Products");
+        // Validate the inputs to see if there's any error
+        validator.validate(products,result);
+        if (result.hasErrors()){
+            // if fails print error and its location
+            logger.error("Validation Failed: "+ result.getAllErrors());
+        } else {
+            List<Product> listOfProducts = this.ps.updateProducts(products);
+            logger.info("Successfully Updated Products");
+            return listOfProducts;
+        }
+        return null;
+    }
 
+    // delete a product
     @DeleteMapping("/products/{productId}")
     public String deleteProduct(@PathVariable Long productId){
         return this.ps.deleteProduct(productId);

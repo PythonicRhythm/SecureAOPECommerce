@@ -23,7 +23,7 @@ public class Product {
     private String seller;
     private String[] categories;
 
-    public long getProductid() {
+    public Long getProductid() {
         return productid;
     }
 
@@ -35,7 +35,7 @@ public class Product {
         return description;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
