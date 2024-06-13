@@ -18,71 +18,11 @@ import static org.yaml.snakeyaml.nodes.Tag.STR;
 public class ProductServiceImpl implements ProductService{
     public Logger logger = LoggerFactory.getLogger(ProductController.class);
     @Autowired
-    public ProductDAO productDao;
+    public ProductDao productDao;
 
     public List<Product> getAllProducts() {
-        return this.productDao.findAll();
+        return this.productDao.findall();
     }
-<<<<<<< Updated upstream
-
-    @Override
-    public List<Product> getBySellers(String seller) {
-        return List.of();
-    }
-
-    @Override
-    public List<Product> getById(long id) {
-        return List.of();
-    }
-
-    @Override
-    public List<Product> getByName(String name) {
-        return List.of();
-    }
-
-    @Override
-    public List<String> getByNames() {
-        return List.of();
-    }
-
-    @Override
-    public List<String> getBySellers() {
-        return List.of();
-    }
-
-    @Override
-    public List<Product> getByCategory(String category) {
-        return List.of();
-    }
-
-    @Override
-    public List<Product> getBySorted() {
-        return List.of();
-    }
-
-    @Override
-    public Product addMultipleProduct(String name, int amount) {
-        return null;
-    }
-
-    @Override
-    public List<Product> addProduct(Product product) {
-        return List.of();
-    }
-
-    @Override
-    public List<Product> updateProduct() {
-        return List.of();
-    }
-
-    @Override
-    public String deleteProduct() {
-        return "";
-    }
-
-    public Product getProductById(int id) {
-=======
->>>>>>> Stashed changes
 
     @Override
     public List<Product> getBySellers(String seller) {
