@@ -385,12 +385,7 @@ public class ProductController {
             // if fails print error and its location
             logger.error("Validation Failed: "+ result.getAllErrors());
         } else {
-            List<Product> listOfProducts = new ArrayList<>();
-            for (int i = 0; i < num; i++){
-                for (Product product : products){
-                    this.ps.addProduct(product);
-                }
-            }
+            List<Product> listOfProducts = this.ps.addMutlipleProduct(products,num);
             logger.info("Successfully Added Products");
             return listOfProducts;
         }

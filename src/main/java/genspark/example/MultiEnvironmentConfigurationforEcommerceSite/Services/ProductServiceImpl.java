@@ -97,8 +97,8 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<Product> addMutlipleProduct(List<Product> products, int amount) {
-        logger.info(String.format("Attempting to add Products: %s times %d", products, amount));
         List<Product> addedProducts = new ArrayList<>();
+        logger.info(String.format("Attempting to add Products: %s times %d", products, amount));
         // Ensure num is positive and greater than 0
         if (amount <= 0) {
             throw new IllegalArgumentException("Number of products to add must be greater than 0");
@@ -107,6 +107,8 @@ public class ProductServiceImpl implements ProductService{
             for (int i = 0; i < amount; i++) {
                 Product newProduct = new Product();
                 newProduct.setName(product.getName());
+
+                newProduct.setSeller(product.getSeller());
                 newProduct.setPrice(product.getPrice());
                 newProduct.setDescription(product.getDescription());
                 newProduct.setCategories(product.getCategories());
@@ -114,7 +116,6 @@ public class ProductServiceImpl implements ProductService{
             }
         }
         return addedProducts;
-
     }
 
     @Override

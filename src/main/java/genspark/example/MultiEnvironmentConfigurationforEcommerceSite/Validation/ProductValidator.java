@@ -40,7 +40,7 @@ public class ProductValidator implements Validator{
                 logger.error("Seller must not be empty for product at index " + index + " : " + product);
             }
             // Validate price
-            if (product.getPrice() == null) {
+            if (product.getPrice() == 0) {
                 errors.reject("product.empty", "Price must not be null for product at index : " + index);
                 logger.error("Price must not be empty for product at index " + index + " : " + product);
             }
