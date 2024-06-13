@@ -31,42 +31,84 @@ public class ProductController {
     // retrieve all products
     @GetMapping("/products")
     public List<Product> getProducts(){
-        return this.ps.getAllProducts();
+        List<Product> listOfProducts =  this.ps.getAllProducts();
+        if (listOfProducts.isEmpty()){
+            logger.info("There Is Currently No Product In The Database");
+        } else {
+            logger.info("Successfully Retrieved All Products");
+        }
+        return listOfProducts;
     }
 
     // retrieve all products sorted by names
     @GetMapping("/products/sorted")
     public List<Product> getSortedProducts(){
-        return this.ps.getBySorted();
+        List<Product> listOfProducts = this.ps.getBySorted();
+        if (listOfProducts.isEmpty()){
+            logger.info("There Is Currently No Product In The Database");
+        } else {
+            logger.info("Successfully Retrieved All Products In Sorted Orders");
+        }
+        return listOfProducts;
     }
 
     // Get product based on name
     @GetMapping("/products/name")
     public List<Product> getProductByName(@RequestParam String name) {
-        return this.ps.getByName(name);
+        List<Product> listOfProducts = this.ps.getByName(name);
+        if (listOfProducts.isEmpty()){
+            logger.info("There Is Currently No Products With the Name: " + name);
+        } else {
+            logger.info("Successfully Retrieved Products with the Name: " + name);
+        }
+        return listOfProducts;
     }
 
     // Get all the names of all the products
     @GetMapping("/products/names")
     public List<String> getAllProductNames() {
-        return this.ps.getByNames();
+        List<String> listOfName= this.ps.getByNames();
+        if (listOfName.isEmpty()){
+            logger.info("There Is Currently No Products");
+        } else {
+            logger.info("Successfully Retrieved Products Names");
+        }
+        return listOfName;
     }
 
     // Get product based on sellers   HOW TO USE (http://localhost:9090/products/seller?seller=orw)
     @GetMapping("/products/seller")
     public List<Product> getProductBySeller(@RequestParam String seller) {
-        return this.ps.getBySeller(seller);
+        List<Product> listOfProducts = this.ps.getBySeller(seller);
+        if (listOfProducts.isEmpty()){
+            logger.info("There Is Currently No Products With the Seller Name: " + seller);
+        } else {
+            logger.info("Successfully Retrieved Products with the Seller Name: " + seller);
+        }
+        return listOfProducts;
     }
     // get all the name of sellers
     @GetMapping("/products/sellers")
     public List<String> getAllProductSellers() {
-        return this.ps.getBySellers();
+        List<String> listOfName= this.ps.getBySellers();
+        if (listOfName.isEmpty()){
+            logger.info("There Is Currently No Products");
+        } else {
+            logger.info("Successfully Retrieved All Sellers Names");
+        }
+        return listOfName;
     }
 
     // Get product based on category
     @GetMapping("/products/category/{category}")
     public List<Product> getProductByCategory(@PathVariable String category) {
-        return this.ps.getByCategory(category);
+        List<Product> listOfProducts = this.ps.getByCategory(category);
+        if (listOfProducts.isEmpty()){
+            logger.info("There Is Currently No Products In The Category: " + category);
+        } else {
+            logger.info("Successfully Retrieved Products In The Category: " + category);
+        }
+        return listOfProducts;
     }
 
     // Get product based on id
