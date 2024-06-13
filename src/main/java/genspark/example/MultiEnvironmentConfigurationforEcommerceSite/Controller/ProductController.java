@@ -134,9 +134,10 @@ public class ProductController {
         return null;
     }
 
-    // update product(s) with validation
+    // add multiple of same product(s) with validation
+    // POST ... /products?num=5
     @PostMapping("/products")
-    public List<Product> addProduct(@Valid @RequestBody List<Product> products,
+    public List<Product> addProducts(@Valid @RequestBody List<Product> products,
                                     @RequestParam int num,
                                     BindingResult result){
 
@@ -153,11 +154,10 @@ public class ProductController {
         }
         return null;
     }
-
-    // add multiple of same product(s) with validation
-    // POST ... /products?num=5
+    
+    // update product(s) with validation
     @PutMapping("/products")
-    public List<Product> addProduct(@Valid @RequestBody List<Product> products, BindingResult result){
+    public List<Product> updateproducts(@Valid @RequestBody List<Product> products, BindingResult result){
         logger.info("Attempting to Update Products");
         // Validate the inputs to see if there's any error
         validator.validate(products,result);
