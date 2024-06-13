@@ -26,27 +26,4 @@ public class Product {
     public Product() {
     }
 
-    public Long getProductid() {
-        return productid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public String getSeller() {
-        return seller;
-    }
-
-    public String[] getCategories() {
-        return categories;
-    }
 }
