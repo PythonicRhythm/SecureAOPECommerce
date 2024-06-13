@@ -25,19 +25,22 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<Product> getBySellers(String seller) {
-        logger.info("Attempting to retrieve Products by Seller: " + seller);
+        logger.info(String.format("Attempting to retreive Products by Seller: %s", seller));
+
         return this.productDao.findBySeller(seller);
     }
 
     public Product getById(long productID) {
-        logger.info("Attempting to Retrieve product by ID: " + productID);
+
+        logger.info(String.format("Attempting to Retrieve product by ID: %d", productID));
         Optional<Product> t = this.productDao.findById(productID);
         Product product = null;
         if (t.isPresent()) {
             product = t.get();
-            logger.info("Successfully Retrieved product with ID: " + productID);
+            logger.info(String.format("Successfully Retrieved product with ID: %d", productID));
         }else {
-            logger.info("Product Not Found by ID: " + productID);
+            logger.info(String.format("Product Not Found by ID: %d", productID));
+
         }
         return product;
     }
@@ -67,7 +70,8 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<Product> getByCategory(String category) {
         List<Product> allProducts = this.productDao.findAll();
-        List<Product> matchCategory = new ArrayList<Product>();
+        List<Product> matchCategory = new ArrayList<>();
+
         for( Product product: allProducts){
             for(String productCategory : product.getCategories()){
                 if(productCategory.toLowerCase().contains(category.toLowerCase())){
