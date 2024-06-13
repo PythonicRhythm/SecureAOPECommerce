@@ -1,6 +1,8 @@
 package genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Controller;
 
 import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product;
+import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Services.ProductService;
+import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Services.ProductServiceImpl;
 import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Validation.ProductValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,13 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-import static java.lang.StringTemplate.STR;
-
 @RestController
 public class ProductController {
     // automatically wire up beans (components) defined in application context and inject them into ps
     @Autowired
-    public ProductService ps;
+    public ProductServiceImpl ps;
     @Autowired
     private ProductValidator validator;
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);
@@ -79,7 +79,7 @@ public class ProductController {
     // Get product based on sellers   HOW TO USE (http://localhost:9090/products/seller?seller=orw)
     @GetMapping("/products/seller")
     public List<Product> getProductBySeller(@RequestParam String seller) {
-        List<Product> listOfProducts = this.ps.getBySeller(seller);
+        List<Product> listOfProducts = this.ps.getBySellers(seller);
         if (listOfProducts.isEmpty()){
             logger.info("There Is Currently No Products With the Seller Name: " + seller);
         } else {
@@ -148,13 +148,13 @@ public class ProductController {
             // if fails print error and its location
             logger.error("Validation Failed: "+ result.getAllErrors());
         } else {
-            List<Product> listOfProducts = this.ps.addMultipleProduct(products,num);
+            List<Product> listOfProducts = this.ps.addMutlipleProduct(products,num);
             logger.info("Successfully Added Products");
             return listOfProducts;
         }
         return null;
     }
-    
+
     // update product(s) with validation
     @PutMapping("/products")
     public List<Product> updateproducts(@Valid @RequestBody List<Product> products, BindingResult result){
@@ -165,7 +165,7 @@ public class ProductController {
             // if fails print error and its location
             logger.error("Validation Failed: "+ result.getAllErrors());
         } else {
-            List<Product> listOfProducts = this.ps.updateProducts(products);
+            List<Product> listOfProducts = this.ps.updateProduct(products);
             logger.info("Successfully Updated Products");
             return listOfProducts;
         }

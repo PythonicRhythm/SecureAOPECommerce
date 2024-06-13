@@ -18,34 +18,34 @@ import static org.yaml.snakeyaml.nodes.Tag.STR;
 public class ProductServiceImpl implements ProductService{
     public Logger logger = LoggerFactory.getLogger(ProductController.class);
     @Autowired
-    public ProductDao productDao;
+    public ProductDAO productDao;
 
     public List<Product> getAllProducts() {
-        return this.productDao.findall();
+        return this.productDao.findAll();
     }
 
     @Override
     public List<Product> getBySellers(String seller) {
-        logger.info(STR."Attempting to retreive Products by Seller: \{seller}");
+        logger.info("Attempting to retrieve Products by Seller: " + seller);
         return this.productDao.findBySeller(seller);
     }
 
     public Product getById(long productID) {
-        logger.info(STR."Attempting to Retrieve product by ID: \{productID}");
-        Optional<Product> t = this.productDAO.findById(productID);
+        logger.info("Attempting to Retrieve product by ID: " + productID);
+        Optional<Product> t = this.productDao.findById(productID);
         Product product = null;
         if (t.isPresent()) {
             product = t.get();
-            logger.info(STR."Successfully Retrieved product with ID: \{productID}");
+            logger.info("Successfully Retrieved product with ID: " + productID);
         }else {
-            logger.info(STR."Product Not Found by ID: \{productID}");
+            logger.info("Product Not Found by ID: " + productID);
         }
         return product;
     }
 
     @Override
     public List<Product> getByName(String name) {
-        //logger.info(STR."Attempting to Retreieve Products by name: \{name}");
+        //logger.info(STR."Attempting to Retrieve Products by name: \{name}");
         return this.productDao.findByName(name);
     }
 
@@ -68,7 +68,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<Product> getByCategory(String category) {
         List<Product> allProducts = this.productDao.findAll();
-        List<Product> matchCategory = new ArrayList<Product>;
+        List<Product> matchCategory = new ArrayList<Product>();
         for( Product product: allProducts){
             for(String productCategory : product.getCategories()){
                 if(productCategory.toLowerCase().contains(category.toLowerCase())){
@@ -77,6 +77,7 @@ public class ProductServiceImpl implements ProductService{
                 }
             }
         }
+        return matchCategory;
     }
 
     @Override
@@ -100,7 +101,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<Product> addProduct(List<Product> products) {
         if(products.size() == 1){
-            return List.of(this.productDao.save(products.getFirst()));
+            return List.of(this.productDao.save(products.get(0)));
         }
         else{
             return this.productDao.saveAll(products);
@@ -110,7 +111,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<Product> updateProduct(List<Product> products) {
         if(products.size() == 1){
-            return List.of(this.productDao.save(products.getFirst()));
+            return List.of(this.productDao.save(products.get(0)));
         }
         else{
             return this.productDao.saveAll(products);
@@ -119,7 +120,7 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public String deleteProduct(long productID) {
-        this.productDao.deleteByID(productID);
+        this.productDao.deleteById(productID);
         return "Product Deleted Successfully";
     }
 
