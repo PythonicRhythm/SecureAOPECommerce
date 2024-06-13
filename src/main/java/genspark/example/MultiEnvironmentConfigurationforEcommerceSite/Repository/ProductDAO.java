@@ -10,17 +10,17 @@ import java.util.List;
 public interface ProductDAO extends JpaRepository<Product, Long> {
 
     @Query("SELECT p from Product p WHERE LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))")
-    List<Product> findByName(Product name);
+    List<Product> findByName(String name);
 
     @Query("SELECT p from Product p WHERE LOWER(p.seller) LIKE LOWER(CONCAT('%', :seller, '%'))")
-    List<Product> findBySeller(List<Product> seller);
+    List<Product> findBySeller(String seller);
 
     // Custom query - gets all product with each name in the list of names
-    @Query("SELECT product FROM Product product WHERE product.name IN :names")
-    List<String> findByNames(@Param("names") List<String> names);
+    @Query("SELECT DISTINCT product.name FROM Product product")
+    List<String> findByNames();
 
-    @Query("SELECT DISTINCT product FROM Product product WHERE product.seller IN :sellers")
-    List<String> findBySellers(@Param("sellers") List<String> sellers);
+    @Query("SELECT DISTINCT product.sellers FROM Product product")
+    List<String> findBySellers();
 
     //Sort by name / Sort by sellers
     @Query(value = "SELECT * from product ORDER BY name", nativeQuery = true)
