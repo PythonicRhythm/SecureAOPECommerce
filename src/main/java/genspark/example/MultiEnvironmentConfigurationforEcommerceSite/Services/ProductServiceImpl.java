@@ -20,13 +20,13 @@ public class ProductServiceImpl implements ProductService{
     public ProductDAO productDao;
 
     public List<Product> getAllProducts() {
+        logger.info("Attempting to retrieve all products");
         return this.productDao.findAll();
     }
 
     @Override
     public List<Product> getBySellers(String seller) {
-        logger.info(String.format("Attempting to retreive Products by Seller: %s", seller));
-
+        logger.info(String.format("Attempting to retrieve Products by Seller: %s", seller));
         return this.productDao.findBySeller(seller);
     }
 
@@ -47,13 +47,14 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<Product> getByName(String name) {
-        //logger.info(STR."Attempting to Retrieve Products by name: \{name}");
+        logger.info(String.format("Attempting to Retrieve Products by name: %s", name));
         return this.productDao.findByName(name);
     }
 
     @Override
     public List<Product> getByNames() {
         logger.info("Attempting to retrieve all products by Name:");
+
         return this.productDao.findProductsByNameSort();
     }
 
@@ -65,6 +66,7 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<Product> getByCategory(String category) {
+        logger.info(String.format("Attempting to Retrieve Products by category: %s", category));
         List<Product> allProducts = this.productDao.findAll();
         List<Product> matchCategory = new ArrayList<>();
 
@@ -80,45 +82,64 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<Product> getBySorted() {
+    public List<Product> getBySortedName() {
         logger.info("Attempting to retrieve sorted products");
 
         return this.productDao.findProductsByNameSort();
     }
 
     @Override
-    public List<Product> addMutlipleProduct(List<Product> products, int amount) {
-        List<Product> newProducts = new ArrayList<>();
-        for(Product product: this.getAllProducts()){
-            for(int i =0; i<amount; i++){
-                newProducts.add(product);
-            }
-        }
-        return this.productDao.saveAll(newProducts);
+    public List<Product> getBySortedSeller() {
+        logger.info("Attempting to retrieve sorted products");
+
+        return this.productDao.findProductsBySellerSort();
     }
 
     @Override
-    public List<Product> addProduct(List<Product> products) {
+    public List<Product> addMutlipleProduct(List<Product> products, int amount) {
+        logger.info(String.format("Attempting to add Products: %s times %d", products,amount));
+        List<Product> newProducts = new ArrayList<>();
+        for(Product product: products){
+            for(int i = 0; i < amount; i++){
+
+                newProducts.add(product);
+                this.productDao.save(product);
+            }
+        }
+        return newProducts;
+    }
+
+    @Override
+    public List<Product> addProducts(List<Product> products) {
         if(products.size() == 1){
+            logger.info("adding a single product");
             return List.of(this.productDao.save(products.get(0)));
         }
         else{
+            logger.info("adding a multiple products");
             return this.productDao.saveAll(products);
         }
+    }
+    @Override
+    public Product addProduct(Product product) {
+        return this.productDao.save(product);
     }
 
     @Override
     public List<Product> updateProduct(List<Product> products) {
         if(products.size() == 1){
+            logger.info("updating a single product");
             return List.of(this.productDao.save(products.get(0)));
         }
         else{
+            logger.info("updating a multiple products");
             return this.productDao.saveAll(products);
         }
     }
 
     @Override
     public String deleteProduct(long productID) {
+        logger.info(String.format("Attempting to delete Product by product ID: %s", productID));
         this.productDao.deleteById(productID);
         return "Product Deleted Successfully";
     }

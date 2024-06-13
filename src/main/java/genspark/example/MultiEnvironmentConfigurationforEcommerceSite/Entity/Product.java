@@ -24,7 +24,6 @@ public class Product {
     private String[] categories;
 
     public Product() {
-
     }
 
     public Long getProductid() {
