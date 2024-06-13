@@ -1,0 +1,980 @@
+2024-06-13 14:36:03 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:36:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 14:36:03 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 14:36:25 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 22500 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 14:36:25 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 14:36:25 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 14:36:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:36:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 14:36:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 99 ms. Found 1 JPA repository interface.
+2024-06-13 14:36:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:36:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 14:36:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 14:36:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 14:36:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 14:36:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 14:36:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 14:36:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 14:36:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1013 ms
+2024-06-13 14:36:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 14:36:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 14:36:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 14:36:26 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 14:36:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 14:36:27 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:290)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:123)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:77)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:221)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1431)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1502)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at genspark.example.MultiEnvironmentConfigurationforEcommerceSite.MultiEnvironmentConfigurationforEcommerceSiteApplication.main(MultiEnvironmentConfigurationforEcommerceSiteApplication.java:10)
+2024-06-13 14:36:27 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 14:36:28 [main] INFO  o.h.m.i.EntityInstantiatorPojoStandard - HHH000182: No default (no-argument) constructor for class: genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product (class must be instantiated by Interceptor)
+2024-06-13 14:36:28 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 14:36:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 14:36:29 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 1045, SQLState: 28000
+2024-06-13 14:36:29 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Access denied for user 'root'@'localhost' (using password: YES)
+2024-06-13 14:36:29 [main] ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+2024-06-13 14:36:29 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+2024-06-13 14:36:29 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2024-06-13 14:36:29 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-06-13 14:36:29 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:952)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at genspark.example.MultiEnvironmentConfigurationforEcommerceSite.MultiEnvironmentConfigurationforEcommerceSiteApplication.main(MultiEnvironmentConfigurationforEcommerceSiteApplication.java:10)
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1835)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1784)
+	... 15 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution [Access denied for user 'root'@'localhost' (using password: YES)] [n/a]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:65)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:570)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:72)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:232)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:117)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
+	at java.base/java.util.HashMap.forEach(HashMap.java:1429)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 19 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:815)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:438)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:241)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:189)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:437)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
+	... 40 common frames omitted
+2024-06-13 14:36:46 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 28732 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 14:36:46 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 14:36:46 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 14:36:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:36:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 14:36:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 94 ms. Found 1 JPA repository interface.
+2024-06-13 14:36:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:36:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 14:36:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 14:36:46 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 14:36:47 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 14:36:47 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 14:36:47 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 14:36:47 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 14:36:47 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1061 ms
+2024-06-13 14:36:47 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 14:36:47 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 14:36:47 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 14:36:47 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 14:36:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 14:36:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e8d9bb6
+2024-06-13 14:36:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 14:36:47 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 14:36:48 [main] INFO  o.h.m.i.EntityInstantiatorPojoStandard - HHH000182: No default (no-argument) constructor for class: genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product (class must be instantiated by Interceptor)
+2024-06-13 14:36:48 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 14:36:48 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:36:48 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 14:36:49 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 14:36:49 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@398a27e, com.mongodb.Jep395RecordCodecProvider@7beb2bc2, com.mongodb.KotlinCodecProvider@28d07fa4]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 14:36:49 [cluster-ClusterId{value='666b4a519fddab5dd15ac82e', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=27851200}
+2024-06-13 14:36:49 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 14:36:49 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 4.004 seconds (process running for 4.251)
+2024-06-13 14:36:53 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 14:36:53 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 14:36:53 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-13 14:36:59 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - There Is Currently No Product In The Database
+2024-06-13 14:37:02 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Attempting to Retrieve product by ID: 1
+2024-06-13 14:37:02 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Product Not Found by ID: 1
+2024-06-13 14:37:27 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:37:27 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 14:37:27 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 14:40:25 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 20132 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 14:40:25 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 14:40:25 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 14:40:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:40:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 14:40:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 91 ms. Found 1 JPA repository interface.
+2024-06-13 14:40:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:40:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 14:40:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 14:40:26 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 14:40:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 14:40:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 14:40:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 14:40:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 14:40:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 983 ms
+2024-06-13 14:40:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 14:40:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 14:40:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 14:40:26 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 14:40:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 14:40:27 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c90029b
+2024-06-13 14:40:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 14:40:27 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 14:40:27 [main] INFO  o.h.m.i.EntityInstantiatorPojoStandard - HHH000182: No default (no-argument) constructor for class: genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product (class must be instantiated by Interceptor)
+2024-06-13 14:40:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 14:40:27 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:40:27 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 14:40:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 14:40:28 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@34949460, com.mongodb.Jep395RecordCodecProvider@1aac520e, com.mongodb.KotlinCodecProvider@24484dfb]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 14:40:28 [cluster-ClusterId{value='666b4b2c5c18024f35f08135', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=27177900}
+2024-06-13 14:40:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 14:40:29 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 3.941 seconds (process running for 4.198)
+2024-06-13 14:40:41 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 14:40:41 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 14:40:41 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-06-13 14:42:34 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:42:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 14:42:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 14:42:40 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 33676 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 14:42:40 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 14:42:40 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 14:42:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:42:40 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 14:42:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 93 ms. Found 1 JPA repository interface.
+2024-06-13 14:42:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:42:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 14:42:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 14:42:41 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 14:42:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 14:42:41 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 14:42:41 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 14:42:41 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 14:42:41 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1059 ms
+2024-06-13 14:42:41 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 14:42:41 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 14:42:41 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 14:42:41 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 14:42:41 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 14:42:42 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6076c66
+2024-06-13 14:42:42 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 14:42:42 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 14:42:42 [main] INFO  o.h.m.i.EntityInstantiatorPojoStandard - HHH000182: No default (no-argument) constructor for class: genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product (class must be instantiated by Interceptor)
+2024-06-13 14:42:42 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 14:42:42 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:42:42 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 14:42:43 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 14:42:43 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@7e7d6175, com.mongodb.Jep395RecordCodecProvider@6da5cb1, com.mongodb.KotlinCodecProvider@113a7d12]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 14:42:43 [cluster-ClusterId{value='666b4bb3e97cdf0f39289117', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=27032600}
+2024-06-13 14:42:44 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 14:42:44 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 4.049 seconds (process running for 4.295)
+2024-06-13 14:42:47 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 14:42:47 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 14:42:47 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-13 14:42:47 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Entering home page...
+2024-06-13 14:42:47 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - There Is Currently No Product In The Database
+2024-06-13 14:50:54 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:50:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 14:50:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 14:50:56 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 28920 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 14:50:56 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 14:50:56 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 14:50:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:50:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 14:50:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 93 ms. Found 1 JPA repository interface.
+2024-06-13 14:50:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:50:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 14:50:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 14:50:57 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 14:50:57 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 14:50:57 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 14:50:57 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 14:50:58 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 14:50:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1022 ms
+2024-06-13 14:50:58 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 14:50:58 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 14:50:58 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 14:50:58 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 14:50:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 14:50:58 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@147c00aa
+2024-06-13 14:50:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 14:50:58 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 14:50:59 [main] INFO  o.h.m.i.EntityInstantiatorPojoStandard - HHH000182: No default (no-argument) constructor for class: genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product (class must be instantiated by Interceptor)
+2024-06-13 14:50:59 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 14:50:59 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:50:59 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 14:50:59 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 14:51:00 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@4f03729f, com.mongodb.Jep395RecordCodecProvider@7d7f49f3, com.mongodb.KotlinCodecProvider@70d4c4ff]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 14:51:00 [cluster-ClusterId{value='666b4da4ce909a70bc83a0a9', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=22570400}
+2024-06-13 14:51:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 14:51:00 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 4.093 seconds (process running for 4.358)
+2024-06-13 14:51:10 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 14:51:10 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 14:51:10 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-06-13 14:51:10 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Entering home page...
+2024-06-13 14:51:13 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Attempting to Retrieve product by ID: 1
+2024-06-13 14:51:13 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Product Not Found by ID: 1
+2024-06-13 14:51:17 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - There Is Currently No Product In The Database
+2024-06-13 14:51:24 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Entering home page...
+2024-06-13 14:51:25 [http-nio-8080-exec-5] INFO  g.e.M.Controller.ProductController - There Is Currently No Product In The Database
+2024-06-13 14:52:11 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:52:11 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 14:52:11 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 14:52:14 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 34064 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 14:52:14 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 14:52:14 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 14:52:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:52:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 14:52:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 95 ms. Found 1 JPA repository interface.
+2024-06-13 14:52:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:52:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 14:52:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 14:52:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 14:52:14 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 14:52:15 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 14:52:15 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 14:52:15 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 14:52:15 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 991 ms
+2024-06-13 14:52:15 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 14:52:15 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 14:52:15 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 14:52:15 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 14:52:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 14:52:15 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6076c66
+2024-06-13 14:52:15 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 14:52:15 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 14:52:16 [main] INFO  o.h.m.i.EntityInstantiatorPojoStandard - HHH000182: No default (no-argument) constructor for class: genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product (class must be instantiated by Interceptor)
+2024-06-13 14:52:16 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 14:52:16 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:52:16 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 14:52:16 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 14:52:17 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@7e7d6175, com.mongodb.Jep395RecordCodecProvider@6da5cb1, com.mongodb.KotlinCodecProvider@113a7d12]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 14:52:17 [cluster-ClusterId{value='666b4df137d3c00fbc9244bc', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=26534700}
+2024-06-13 14:52:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 14:52:17 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 3.917 seconds (process running for 4.162)
+2024-06-13 14:52:20 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 14:52:20 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 14:52:20 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-06-13 14:52:20 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - There Is Currently No Product In The Database
+2024-06-13 14:52:38 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Attempting to Add Products
+2024-06-13 14:52:38 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Successfully Added Products
+2024-06-13 14:52:41 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.orm.jpa.JpaSystemException: No default constructor for entity 'genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product'] with root cause
+org.hibernate.InstantiationException: No default constructor for entity 'genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product'
+	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:93)
+	at org.hibernate.persister.entity.AbstractEntityPersister.instantiate(AbstractEntityPersister.java:4569)
+	at org.hibernate.internal.SessionImpl.instantiate(SessionImpl.java:1485)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.instantiateEntity(AbstractEntityInitializer.java:693)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.resolveEntityInstance(AbstractEntityInitializer.java:686)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.resolveInstance(AbstractEntityInitializer.java:637)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.resolveEntityInstance(AbstractEntityInitializer.java:559)
+	at org.hibernate.sql.results.graph.entity.AbstractEntityInitializer.resolveInstance(AbstractEntityInitializer.java:458)
+	at org.hibernate.sql.results.internal.InitializersList.resolveInstances(InitializersList.java:97)
+	at org.hibernate.sql.results.internal.StandardRowReader.coordinateInitializers(StandardRowReader.java:112)
+	at org.hibernate.sql.results.internal.StandardRowReader.readRow(StandardRowReader.java:87)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:205)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.lambda$new$2(ConcreteSqmSelectQueryPlan.java:139)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.withCacheableSqmInterpretation(ConcreteSqmSelectQueryPlan.java:382)
+	at org.hibernate.query.sqm.internal.ConcreteSqmSelectQueryPlan.performList(ConcreteSqmSelectQueryPlan.java:302)
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doList(QuerySqmImpl.java:526)
+	at org.hibernate.query.spi.AbstractSelectionQuery.list(AbstractSelectionQuery.java:423)
+	at org.hibernate.query.Query.getResultList(Query.java:120)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:391)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll(SimpleJpaRepository.java:1)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy118.findAll(Unknown Source)
+	at genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Services.ProductServiceImpl.getAllProducts(ProductServiceImpl.java:23)
+	at genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Controller.ProductController.getProducts(ProductController.java:198)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1570)
+2024-06-13 14:53:13 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:53:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 14:53:13 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 14:53:16 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 25488 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 14:53:16 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 14:53:16 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 14:53:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:53:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 14:53:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 99 ms. Found 1 JPA repository interface.
+2024-06-13 14:53:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 14:53:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 14:53:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 14:53:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 14:53:17 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 14:53:17 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 14:53:17 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 14:53:17 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 14:53:17 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1006 ms
+2024-06-13 14:53:17 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 14:53:17 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 14:53:17 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 14:53:18 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 14:53:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 14:53:18 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4db728df
+2024-06-13 14:53:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 14:53:18 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 14:53:18 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 14:53:19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 14:53:19 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 14:53:19 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 14:53:20 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@38d1c7d2, com.mongodb.Jep395RecordCodecProvider@533ed36e, com.mongodb.KotlinCodecProvider@3b538e2a]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 14:53:20 [cluster-ClusterId{value='666b4e2f8b618e79c39d111b', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=30792300}
+2024-06-13 14:53:20 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 14:53:20 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 3.99 seconds (process running for 4.255)
+2024-06-13 14:53:25 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 14:53:25 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 14:53:25 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-13 14:53:25 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 14:53:25 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 1, creating html component for customer.
+2024-06-13 14:53:25 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 14:53:36 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'seller' for method parameter type String is not present]
+2024-06-13 14:53:38 [http-nio-8080-exec-3] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+2024-06-13 14:53:51 [http-nio-8080-exec-5] INFO  g.e.M.Controller.ProductController - Attempting to Add Products
+2024-06-13 14:53:51 [http-nio-8080-exec-5] INFO  g.e.M.Controller.ProductController - Successfully Added Products
+2024-06-13 14:53:56 [http-nio-8080-exec-6] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 14:53:56 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 1, creating html component for customer.
+2024-06-13 14:53:56 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 14:53:56 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 14:53:56 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 14:54:11 [http-nio-8080-exec-7] INFO  g.e.M.Controller.ProductController - Attempting to Add Products
+2024-06-13 14:54:11 [http-nio-8080-exec-7] INFO  g.e.M.Controller.ProductController - Successfully Added Products
+2024-06-13 14:54:14 [http-nio-8080-exec-8] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 14:54:14 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 1, creating html component for customer.
+2024-06-13 14:54:14 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 14:54:14 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 14:54:14 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 14:54:14 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 14:54:14 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 14:54:38 [http-nio-8080-exec-9] INFO  g.e.M.Controller.ProductController - Attempting to Add Products
+2024-06-13 14:54:38 [http-nio-8080-exec-9] INFO  g.e.M.Controller.ProductController - Successfully Added Products
+2024-06-13 14:54:39 [http-nio-8080-exec-10] INFO  g.e.M.Controller.ProductController - Attempting to Add Products
+2024-06-13 14:54:39 [http-nio-8080-exec-10] INFO  g.e.M.Controller.ProductController - Successfully Added Products
+2024-06-13 14:54:39 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Attempting to Add Products
+2024-06-13 14:54:39 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Successfully Added Products
+2024-06-13 14:54:40 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Attempting to Add Products
+2024-06-13 14:54:40 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Successfully Added Products
+2024-06-13 14:54:41 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Attempting to Add Products
+2024-06-13 14:54:41 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Successfully Added Products
+2024-06-13 14:54:42 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 1, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 14:54:42 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 14:55:58 [http-nio-8080-exec-8] INFO  g.e.M.Controller.ProductController - Attempting to Retrieve product by ID: 57
+2024-06-13 14:55:58 [http-nio-8080-exec-8] INFO  g.e.M.Controller.ProductController - Successfully Retrieved product with ID: 57
+2024-06-13 14:56:21 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 14:56:21 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 14:56:22 [http-nio-8080-exec-2] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'seller' for method parameter type String is not present]
+2024-06-13 14:56:27 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Attempting to Retrieve product by ID: 52
+2024-06-13 14:56:27 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Successfully Retrieved product with ID: 52
+2024-06-13 14:56:33 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Attempting to Retrieve product by ID: 52
+2024-06-13 14:56:33 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Successfully Retrieved product with ID: 52
+2024-06-13 14:56:43 [http-nio-8080-exec-5] INFO  g.e.M.Controller.ProductController - Attempting to Retrieve product by ID: 52
+2024-06-13 14:56:43 [http-nio-8080-exec-5] INFO  g.e.M.Controller.ProductController - Successfully Retrieved product with ID: 52
+2024-06-13 14:56:46 [http-nio-8080-exec-6] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'seller' for method parameter type String is not present]
+2024-06-13 14:56:48 [http-nio-8080-exec-7] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+2024-06-13 15:08:54 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 15:08:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 15:08:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 15:08:57 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 22848 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 15:08:57 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 15:08:57 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 15:08:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 15:08:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 15:08:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 85 ms. Found 1 JPA repository interface.
+2024-06-13 15:08:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 15:08:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 15:08:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 15:08:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 15:08:58 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 15:08:58 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 15:08:58 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 15:08:58 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 15:08:58 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1027 ms
+2024-06-13 15:08:58 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 15:08:59 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 15:08:59 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 15:08:59 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 15:08:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 15:08:59 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d07aacc
+2024-06-13 15:08:59 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 15:08:59 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 15:09:00 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 15:09:00 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 15:09:00 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 15:09:00 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 15:09:01 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@beac39c, com.mongodb.Jep395RecordCodecProvider@41843b88, com.mongodb.KotlinCodecProvider@3cc7cf58]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 15:09:01 [cluster-ClusterId{value='666b51ddb145be0ced4a6c5f', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=22861800}
+2024-06-13 15:09:01 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 15:09:01 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 4.074 seconds (process running for 4.321)
+2024-06-13 15:09:08 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 15:09:08 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 15:09:08 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-13 15:09:08 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:09:08 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:09:10 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Attempting to Retrieve product by ID: 55
+2024-06-13 15:09:11 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Successfully Retrieved product with ID: 55
+2024-06-13 15:09:11 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Product found, creating product page...
+2024-06-13 15:09:15 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:09:15 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:09:22 [http-nio-8080-exec-4] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'seller' for method parameter type String is not present]
+2024-06-13 15:09:24 [http-nio-8080-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+2024-06-13 15:09:34 [http-nio-8080-exec-6] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+2024-06-13 15:13:31 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 15:13:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 15:13:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 15:13:34 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 28376 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 15:13:34 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 15:13:34 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 15:13:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 15:13:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 15:13:34 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 103 ms. Found 1 JPA repository interface.
+2024-06-13 15:13:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 15:13:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 15:13:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 15:13:35 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 15:13:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 15:13:35 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 15:13:35 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 15:13:35 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 15:13:35 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 993 ms
+2024-06-13 15:13:35 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 15:13:35 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 15:13:35 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 15:13:35 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 15:13:35 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 15:13:36 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@586737ff
+2024-06-13 15:13:36 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 15:13:36 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 15:13:36 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 15:13:36 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 15:13:36 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 15:13:37 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 15:13:37 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@70c6860, com.mongodb.Jep395RecordCodecProvider@7ef6a063, com.mongodb.KotlinCodecProvider@1cd7bc66]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 15:13:37 [cluster-ClusterId{value='666b52f1e88f2f15957883c7', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=40391800}
+2024-06-13 15:13:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 15:13:38 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 3.954 seconds (process running for 4.21)
+2024-06-13 15:13:45 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 15:13:45 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 15:13:45 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-06-13 15:13:45 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:13:45 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:13:49 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Attempting to Retrieve product by ID: 58
+2024-06-13 15:13:49 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Successfully Retrieved product with ID: 58
+2024-06-13 15:13:49 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Product found, creating product page...
+2024-06-13 15:13:50 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:13:50 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:13:52 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:13:54 [http-nio-8080-exec-5] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'name' for method parameter type String is not present]
+2024-06-13 15:13:59 [http-nio-8080-exec-6] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'seller' for method parameter type String is not present]
+2024-06-13 15:14:26 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 15:14:26 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-06-13 15:14:26 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-06-13 15:14:28 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Starting MultiEnvironmentConfigurationforEcommerceSiteApplication using Java 22.0.1 with PID 28652 (C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite\target\classes started by Kidre in C:\Users\Kidre\IdeaProjects\MultiEnvironmentConfigurationforEcommerceSite)
+2024-06-13 15:14:28 [main] DEBUG g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2024-06-13 15:14:28 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - The following 1 profile is active: "prod"
+2024-06-13 15:14:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 15:14:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-13 15:14:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 93 ms. Found 1 JPA repository interface.
+2024-06-13 15:14:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2024-06-13 15:14:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2024-06-13 15:14:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationExtensionSupport - Spring Data Reactive MongoDB - Could not safely identify store assignment for repository candidate interface genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Repository.ProductDAO; If you want this repository to be a Reactive MongoDB repository, consider annotating your entities with one of these annotations: org.springframework.data.mongodb.core.mapping.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.mongodb.repository.ReactiveMongoRepository
+2024-06-13 15:14:29 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 3 ms. Found 0 Reactive MongoDB repository interfaces.
+2024-06-13 15:14:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-06-13 15:14:29 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-06-13 15:14:29 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-13 15:14:30 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-06-13 15:14:30 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1004 ms
+2024-06-13 15:14:30 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-13 15:14:30 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-06-13 15:14:30 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-06-13 15:14:30 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-13 15:14:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-13 15:14:30 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a89414e
+2024-06-13 15:14:30 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-13 15:14:30 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-13 15:14:31 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-13 15:14:31 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-13 15:14:31 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-13 15:14:31 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-13 15:14:32 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|reactive-streams|spring-boot", "version": "5.0.1"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/22.0.1+8-16"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3cc7cf58, com.mongodb.Jep395RecordCodecProvider@7fd8f21, com.mongodb.KotlinCodecProvider@5a564a61]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-06-13 15:14:32 [cluster-ClusterId{value='666b532811f5966e2399c167', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17357300}
+2024-06-13 15:14:32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-06-13 15:14:32 [main] INFO  g.e.M.MultiEnvironmentConfigurationforEcommerceSiteApplication - Started MultiEnvironmentConfigurationforEcommerceSiteApplication in 3.773 seconds (process running for 4.012)
+2024-06-13 15:14:36 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-13 15:14:36 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-06-13 15:14:36 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-06-13 15:14:36 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:14:36 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Name:
+2024-06-13 15:14:39 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Successfully Retrieved Products Names
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:39 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Seller:
+2024-06-13 15:14:43 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Sellers Names
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:43 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Seller:
+2024-06-13 15:14:45 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Sellers Names
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:45 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Name:
+2024-06-13 15:14:46 [http-nio-8080-exec-5] INFO  g.e.M.Controller.ProductController - Successfully Retrieved Products Names
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:46 [http-nio-8080-exec-5] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:14:47 [http-nio-8080-exec-7] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Name:
+2024-06-13 15:14:49 [http-nio-8080-exec-8] INFO  g.e.M.Controller.ProductController - Successfully Retrieved Products Names
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-8] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Products
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:14:49 [http-nio-8080-exec-6] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Seller:
+2024-06-13 15:14:50 [http-nio-8080-exec-10] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Sellers Names
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:14:50 [http-nio-8080-exec-10] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Seller:
+2024-06-13 15:15:37 [http-nio-8080-exec-1] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Sellers Names
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-1] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Name:
+2024-06-13 15:15:37 [http-nio-8080-exec-2] INFO  g.e.M.Controller.ProductController - Successfully Retrieved Products Names
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:15:37 [http-nio-8080-exec-2] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Seller:
+2024-06-13 15:15:38 [http-nio-8080-exec-3] INFO  g.e.M.Controller.ProductController - Successfully Retrieved All Sellers Names
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-3] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Attempting to retrieve all products by Name:
+2024-06-13 15:15:38 [http-nio-8080-exec-4] INFO  g.e.M.Controller.ProductController - Successfully Retrieved Products Names
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 2, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 53, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 55, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 57, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 59, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 61, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 63, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 65, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 52, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 54, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 56, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 58, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 60, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 62, creating html component for customer.
+2024-06-13 15:15:38 [http-nio-8080-exec-4] DEBUG g.e.M.Controller.ProductController - Found Product 64, creating html component for customer.
