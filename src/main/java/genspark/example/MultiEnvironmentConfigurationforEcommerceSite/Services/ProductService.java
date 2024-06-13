@@ -1,6 +1,8 @@
 package genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Services;
 
 import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 public interface ProductService {
     List<Product> getAllProducts();

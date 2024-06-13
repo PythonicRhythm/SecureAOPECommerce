@@ -10,7 +10,6 @@ import org.springframework.validation.Validator;
 
 import java.util.List;
 
-import static java.lang.StringTemplate.STR;
 
 // Class that validate inputs for Products Creation
 @Component
