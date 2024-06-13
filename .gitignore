@@ -35,3 +35,5 @@ build/
 !**/src/main/resources/application.properties
 .gitignore
 /pom.xml
+/logs/application_prod.log
+/logs/application_dev.log
