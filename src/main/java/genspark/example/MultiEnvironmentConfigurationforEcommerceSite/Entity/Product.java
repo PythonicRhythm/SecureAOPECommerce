@@ -23,6 +23,9 @@ public class Product {
     private String seller;
     private String[] categories;
 
+    public Product() {
+    }
+
     public Long getProductid() {
         return productid;
     }

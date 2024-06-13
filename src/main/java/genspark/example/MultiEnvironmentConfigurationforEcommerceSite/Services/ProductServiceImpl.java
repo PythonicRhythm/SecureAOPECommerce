@@ -54,12 +54,7 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<String> getByNames() {
         logger.info("Attempting to retrieve all products by Name:");
-        List<Product> allProducts = this.productDao.findAll();
-        List<String> productNames = new ArrayList<>() ;
-        for( Product product: allProducts){
-            productNames.add(product.getName());
-        }
-        return productNames;
+        return this.productDao.findByNames();
     }
 
     @Override
@@ -86,10 +81,17 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<Product> getBySorted() {
+    public List<Product> getBySortedName() {
         logger.info("Attempting to retrieve sorted products");
 
         return this.productDao.findProductsByNameSort();
+    }
+
+    @Override
+    public List<Product> getBySortedSeller() {
+        logger.info("Attempting to retrieve sorted products");
+
+        return this.productDao.findProductsBySellerSort();
     }
 
     @Override
@@ -111,10 +113,11 @@ public class ProductServiceImpl implements ProductService{
             }
         }
         return addedProducts;
+
     }
 
     @Override
-    public List<Product> addProduct(List<Product> products) {
+    public List<Product> addProducts(List<Product> products) {
         if(products.size() == 1){
             logger.info("adding a single product");
             return List.of(this.productDao.save(products.get(0)));
@@ -123,6 +126,10 @@ public class ProductServiceImpl implements ProductService{
             logger.info("adding a multiple products");
             return this.productDao.saveAll(products);
         }
+    }
+    @Override
+    public Product addProduct(Product product) {
+        return this.productDao.save(product);
     }
 
     @Override
