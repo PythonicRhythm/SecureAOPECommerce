@@ -7,6 +7,7 @@ import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Validation
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@RestController
+@Controller
 public class ProductController {
     // automatically wire up beans (components) defined in application context and inject them into ps
     @Autowired
@@ -24,36 +25,7 @@ public class ProductController {
     private ProductValidator validator;
     private final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
-    // Home page
-    @GetMapping("/")
-    public String home(){
-        logger.info("Entering home page...");
-        StringBuilder allHTML = new StringBuilder();
 
-        allHTML.append("<style>" +
-                ".homepanel {" +
-                "display: flex;" +
-                "flex-direction: column;" +
-                "margin: 20;" +
-                "align-items: center;" +
-                "justify-content: center;" +
-                "}" +
-                ".homepanel > h1 {" +
-                "margin: 0;" +
-                "margin-bottom: 10;" +
-                "font-size: 50;" +
-                "}" +
-                ".homepanel > a {" +
-                "font-size: 30;" +
-                "}" +
-                "</style>");
-
-        allHTML.append("<div class=\"homepanel\">");
-        allHTML.append("<h1>Welcome to our E-Commerce System!</h1>");
-        allHTML.append("<a href=\"/products\">View all current products.</a>");
-        allHTML.append("</div>");
-        return allHTML.toString();
-    }
 
     private String productContainerBuilder(Product p)
     {
@@ -265,6 +237,18 @@ public class ProductController {
             logger.info("Successfully Retrieved All Products");
         }
         return productPanelBuilder(listOfProducts);
+    }
+
+    //send to login page to authenticate user
+    @GetMapping("login")
+    public String loginPage(){
+        return "login";
+    }
+
+    //send to public page where user can go to the login page
+    @GetMapping("/")
+    public String publicPage(){
+        return "public";
     }
 
     // retrieve all products sorted by names
