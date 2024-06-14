@@ -51,7 +51,7 @@ public class LoggingAspect {
     }
 
     @AfterReturning(pointcut = "execution(* genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Validation.ProductValidator.validate(..))", returning = "result")
-    public void logAfterValidation(JoinPoint joinPoint, Object result){ 
+    public void logAfterValidation(JoinPoint joinPoint, Object result){
         Object[] args = joinPoint.getArgs();
         Object target = args[0];
         String methodName = joinPoint.getSignature().getName();
