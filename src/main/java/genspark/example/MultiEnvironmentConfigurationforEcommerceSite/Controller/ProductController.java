@@ -43,6 +43,19 @@ public class ProductController {
         return "login";
     }
 
+    //send to login page to authenticate user
+    @GetMapping("admin")
+    public String adminPage(){
+        return "admin";
+    }
+
+    //send to login page to authenticate user
+    @GetMapping("normal")
+    public String normalPage(){
+        return "normal";
+    }
+
+
     //send to public page where user can go to the login page
     @GetMapping("/")
     public String publicPage(){
@@ -139,8 +152,8 @@ public class ProductController {
 
     // Get product based on id
     @GetMapping("/products/{productId}")
-    public String getProductById(@PathVariable Long productId) {
-        //return productPageBuilder(this.ps.getById(productId));
+    public String getProductById(@PathVariable Long productId, Model model) {
+        model.addAttribute("product", this.ps.getById(productId));
         return "targetproduct";
     }
 

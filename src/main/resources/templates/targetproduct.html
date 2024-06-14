@@ -1,69 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="ISO-8859-1">
+    <title>Specific Product</title>
+    <style>
+        .pagepanel {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        .productcomp {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 20;
+            align-items: center;
+            justify-content: center;
+        }
+        .productcomp > p {
+            font-size: 30px;
+            margin: 0;
+            margin-bottom: 10;
+        }
+        .productcomp > h1 {
+            font-size: 60px;
+        }
+    </style>
 </head>
 <body>
 
+<div class="pagepanel">
+    <div th:if="${product == null}" class="productcomp">
+        <h1>Product Not Found!</h1>
+        <a href="/products"><button>Go Back</button></a>
+    </div>
+    <div th:if="${product != null}" class="productcomp">
+        <a href="/products"><button>Go Back</button></a>
+        <h2 th:text="${'Product ID: ' + product.productid}"></h2>
+        <p th:text="${'Name: ' + product.name}"></p>
+        <!--        allHTML.append(String.format("<p>Description: %s</p>", p.getDescription()));-->
+        <p th:text="${'Categories: ' + product.categories}"></p>
+        <p th:text="${'Price: ' + product.price}"></p>
+        <p th:text="${'Seller: ' + product.seller}"></p>
+    </div>
+</div>
+
 </body>
 </html>
-
-<!--private String productPageBuilder(Product p)-->
-<!--{-->
-<!--StringBuilder allHTML = new StringBuilder();-->
-
-<!--allHTML.append("<style>" +-->
-<!--                ".pagepanel {" +-->
-<!--                "display: flex;" +-->
-<!--                "flex-direction: row;" +-->
-<!--                "height: 100%;" +-->
-<!--                "align-items: center;" +-->
-<!--                "justify-content: center;" +-->
-<!--                "}" +-->
-<!--                ".productcomp {" +-->
-<!--                "display: flex;" +-->
-<!--                "flex-direction: column;" +-->
-<!--                "border: 1px solid black;" +-->
-<!--                "border-radius: 20px;" +-->
-<!--                "padding: 20;" +-->
-<!--                "align-items: center;" +-->
-<!--                "justify-content: center;" +-->
-<!--                "}" +-->
-<!--                ".productcomp > p {" +-->
-<!--                "font-size: 30px;" +-->
-<!--                "margin: 0;" +-->
-<!--                "margin-bottom: 10;" +-->
-<!--                "}" +-->
-<!--                ".productcomp > h1 {" +-->
-<!--                "font-size: 60px;" +-->
-<!--                "}" +-->
-<!--                "</style>");-->
-
-<!--allHTML.append("<div class=\"pagepanel\">");-->
-<!--    allHTML.append("<div class=\"productcomp\">");-->
-
-<!--        if(p == null) {-->
-<!--        logger.info("Product not found, creating null page...");-->
-<!--        allHTML.append("<h1>Product Not Found!</h1>");-->
-<!--        allHTML.append("<a href=\"/products\"><button>Go Back</button></a>");-->
-<!--        allHTML.append("</div>");-->
-<!--    allHTML.append("</div>");-->
-<!--}-->
-<!--else {-->
-<!--logger.info("Product found, creating product page...");-->
-<!--allHTML.append("<a href=\"/products\"><button>Go Back</button></a>");-->
-<!--allHTML.append(String.format("<h1>Product (ID: %d):</h1>", p.getProductid()));-->
-<!--allHTML.append(String.format("<p>Description: %s</p>", p.getDescription()));-->
-<!--allHTML.append(String.format("<p>Categories: %s</p>", Arrays.toString(p.getCategories())));-->
-<!--allHTML.append(String.format("<p>Price: %f</p>", p.getPrice()));-->
-<!--allHTML.append(String.format("<p>Seller: %s</p>", p.getSeller()));-->
-
-<!--}-->
-
-<!--allHTML.append("</div>");-->
-<!--allHTML.append("</div>");-->
-
-
-<!--return allHTML.toString();-->
-<!--}-->
