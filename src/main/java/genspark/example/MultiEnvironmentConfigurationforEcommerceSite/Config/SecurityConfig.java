@@ -50,7 +50,7 @@ public class SecurityConfig {
                         .requestMatchers("/public").permitAll()
                         .requestMatchers("/normal").hasRole("NORMAL")
                         .requestMatchers("/admin").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/products").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/products").hasAnyRole("NORMAL", "ADMIN")
                         .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/products").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/products/*").hasRole("ADMIN")

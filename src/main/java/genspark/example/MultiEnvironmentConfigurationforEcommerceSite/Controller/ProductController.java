@@ -20,13 +20,28 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
+@RequestMapping("/")
 public class ProductController {
     // automatically wire up beans (components) defined in application context and inject them into ps
     @Autowired
     public ProductServiceImpl ps;
     @Autowired
     private ProductValidator validator;
-    private final Logger logger = LoggerFactory.getLogger(ProductController.class);
+
+
+    //send to login page to authenticate user
+    @GetMapping("login")
+    public String loginPage(){
+        return "login";
+    }
+    @GetMapping("admin")
+    public String adminPage(){
+        return "admin";
+    }
+    @GetMapping("normal")
+    public String normalPage(){
+        return "normal";
+    }
 
     // retrieve all products
     @GetMapping("/products")
@@ -37,52 +52,17 @@ public class ProductController {
         return "products";
     }
 
-    //send to login page to authenticate user
-    @GetMapping("login")
-    public String loginPage(){
-        return "login";
-    }
-
-    //send to login page to authenticate user
-    @GetMapping("admin")
-    public String adminPage(){
-        return "admin";
-    }
-
-    //send to login page to authenticate user
-    @GetMapping("normal")
-    public String normalPage(){
-        return "normal";
-    }
-
-
-    //send to public page where user can go to the login page
-    @GetMapping("/")
-    public String publicPage(){
-        return "public";
-    }
-
     // retrieve all products sorted by names
     @GetMapping("/products/names/sorted")
     public String getSortedNames(Model model){
         List<Product> listOfProducts = this.ps.getBySortedName();
         model.addAttribute("productlist", listOfProducts);
-        if (listOfProducts.isEmpty()){
-            logger.info("There Is Currently No Product In The Database");
-        } else {
-            logger.info("Successfully Retrieved All Products In Sorted Orders of Name");
-        }
         return "products";
     }
     @GetMapping("/products/sellers/sorted")
     public String getSortedSellers(Model model){
         List<Product> listOfProducts = this.ps.getBySortedSeller();
         model.addAttribute("productlist", listOfProducts);
-        if (listOfProducts.isEmpty()){
-            logger.info("There Is Currently No Product In The Database");
-        } else {
-            logger.info("Successfully Retrieved All Products In Sorted Orders of Sellers");
-        }
         return "products";
     }
 
@@ -91,11 +71,6 @@ public class ProductController {
     public String getProductByName(@RequestParam String name, Model model) {
         List<Product> listOfProducts = this.ps.getByName(name);
         model.addAttribute("productlist", listOfProducts);
-        if (listOfProducts.isEmpty()){
-            logger.info("There Is Currently No Products With the Name: " + name);
-        } else {
-            logger.info("Successfully Retrieved Products with the Name: " + name);
-        }
         return "products";
     }
 
@@ -104,11 +79,6 @@ public class ProductController {
     public String getAllProductNames(Model model) {
         List<Product> listOfProducts= this.ps.getByNames();
         model.addAttribute("productlist", listOfProducts);
-        if (listOfProducts.isEmpty()){
-            logger.info("There Is Currently No Products");
-        } else {
-            logger.info("Successfully Retrieved Products Names");
-        }
         return "products";
     }
 
@@ -117,11 +87,6 @@ public class ProductController {
     public String getProductBySeller(@RequestParam String seller, Model model) {
         List<Product> listOfProducts = this.ps.getBySellers(seller);
         model.addAttribute("productlist", listOfProducts);
-        if (listOfProducts.isEmpty()){
-            logger.info("There Is Currently No Products With the Seller Name: " + seller);
-        } else {
-            logger.info("Successfully Retrieved Products with the Seller Name: " + seller);
-        }
         return "products";
     }
     // get all the name of sellers
@@ -129,11 +94,6 @@ public class ProductController {
     public String getAllProductSellers(Model model) {
         List<Product> listOfProducts = this.ps.getBySellers();
         model.addAttribute("productlist", listOfProducts);
-        if (listOfProducts.isEmpty()){
-            logger.info("There Is Currently No Products");
-        } else {
-            logger.info("Successfully Retrieved All Sellers Names");
-        }
         return "products";
     }
 
@@ -142,11 +102,6 @@ public class ProductController {
     public String getProductByCategory(@PathVariable String category, Model model) {
         List<Product> listOfProducts = this.ps.getByCategory(category);
         model.addAttribute("productlist", listOfProducts);
-        if (listOfProducts.isEmpty()){
-            logger.info("There Is Currently No Products In The Category: " + category);
-        } else {
-            logger.info("Successfully Retrieved Products In The Category: " + category);
-        }
         return "products";
     }
 
@@ -160,16 +115,11 @@ public class ProductController {
     // add new product(s) with validation
     @PostMapping("/products")
     public String addProduct(@Valid @RequestBody List<Product> products, BindingResult result, Model model){
-        logger.info("Attempting to Add Products");
         // Validate the inputs to see if there's any error
         validator.validate(products,result);
         model.addAttribute("productlist", products);
-        if (result.hasErrors()){
-            // if fails print error and its location
-            logger.error("Validation Failed: "+ result.getAllErrors());
-        } else {
+        if (!result.hasErrors()){
             List<Product> listOfProducts = this.ps.addProducts(products);
-            logger.info("Successfully Added Products");
             return "products";
         }
         return "products";
@@ -182,16 +132,10 @@ public class ProductController {
                                     @RequestParam int num,
                                     BindingResult result,
                                      Model model){
-        logger.info("Attempting to Add Products");
-        // Validate the inputs to see if there's any error
         validator.validate(products,result);
         model.addAttribute("productlist", products);
-        if (result.hasErrors()){
-            // if fails print error and its location
-            logger.error("Validation Failed: "+ result.getAllErrors());
-        } else {
+        if (!result.hasErrors()){
             List<Product> listOfProducts = this.ps.addMutlipleProduct(products,num);
-            logger.info("Successfully Added Products");
             return "products";
         }
         return "products";
@@ -200,16 +144,10 @@ public class ProductController {
     // update product(s) with validation
     @PutMapping("/products")
     public String updateproducts(@Valid @RequestBody List<Product> products, BindingResult result, Model model){
-        logger.info("Attempting to Update Products");
-        // Validate the inputs to see if there's any error
         validator.validate(products,result);
         model.addAttribute("productlist", products);
-        if (result.hasErrors()){
-            // if fails print error and its location
-            logger.error("Validation Failed: "+ result.getAllErrors());
-        } else {
+        if (!result.hasErrors()){
             List<Product> listOfProducts = this.ps.updateProduct(products);
-            logger.info("Successfully Updated Products");
             return "products";
         }
         return "products";
