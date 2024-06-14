@@ -66,13 +66,10 @@
     </style>
     <script>
     function namesearchredirec() {
-    window.location.href = \"http://localhost:8080/customers/findbyname/\"+document.querySelectorAll('#name')[0].value;
+        window.location.href = "http://localhost:7070/products/name?name="+document.querySelectorAll('#name')[0].value;
     }
-    function emailsearchredirec() {
-    window.location.href = \"http://localhost:8080/customers/findbyemail/\"+document.querySelectorAll('#email')[0].value;
-    }
-    function phonenumbersearchredirec() {
-        window.location.href = \"http://localhost:8080/customers/findbyphonenumber/\"+document.querySelectorAll('#phonenumber')[0].value;
+    function sellersearchredirec() {
+        window.location.href = "http://localhost:7070/products/seller?seller="+document.querySelectorAll('#seller')[0].value;
     }
     </script>
 </head>
@@ -87,8 +84,8 @@
         </div>
 
         <div th:case="false">
-            <a href="products/names/sorted"><button>Sort by Name</button></a>
-            <a href="products/sellers/sorted"><button>Sort by Seller</button></a>
+            <a href="/products/names/sorted"><button>Sort by Name</button></a>
+            <a href="/products/sellers/sorted"><button>Sort by Seller</button></a>
             <a href="/products"><button>Default ID Sort</button></a>
         </div>
     </div>
@@ -109,20 +106,14 @@
 <div th:if="${!productlist.empty}" class="searchpanel">
 
     <div class="inputrow">
-        <label for=\"name\">Name Search: </label>
-        <input type="text" id=\"name\" name=\"name\">
-        <button onclick=\"namesearchredirec()\">Search</button>
+        <label for="name">Name Search: </label>
+        <input type="text" id="name" name="name">
+        <button onclick="namesearchredirec()">Search</button>
     </div>
-    <div class=\"inputrow\">
-        <label for=\"email\">Email Search: </label>
-        <input type=\"text\" id=\"email\" name=\"email\">
-        <button onclick=\"emailsearchredirec()\">Search</button>
-    </div>
-
-    <div class=\"inputrow\">
-        <label for=\"phonenumber\">Phone Number Search: </label>
-        <input type=\"text\" id=\"phonenumber\" name=\"phonenumber\">
-        <button onclick=\"phonenumbersearchredirec()\">Search</button>
+    <div class="inputrow">
+        <label for="seller">Seller Search: </label>
+        <input type="text" id="seller" name="seller">
+        <button onclick="sellersearchredirec()">Search</button>
     </div>
 </div>
 
