@@ -8,7 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.Model;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +35,18 @@ public class ProductController {
         model.addAttribute("productlist", listOfProducts);
         System.out.println(listOfProducts);
         return "products";
+    }
+
+    //send to login page to authenticate user
+    @GetMapping("login")
+    public String loginPage(){
+        return "login";
+    }
+
+    //send to public page where user can go to the login page
+    @GetMapping("/")
+    public String publicPage(){
+        return "public";
     }
 
     // retrieve all products sorted by names
