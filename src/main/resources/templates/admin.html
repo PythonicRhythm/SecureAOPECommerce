@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee Management System</title>
+    <style>
+        .productpanel {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: stretch;
+            justify-content: space-evenly;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            padding: 15;
+        }
+        .productcomponent {
+            width: 30%;
+            height: 100%;
+            border: 1px solid black;
+            border-radius: 10% / 50%;
+            margin-top: 15;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .searchpanel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15;
+            padding-left: 50;
+            padding-right: 50;
+        }
+        .inputrow {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            padding: 10;
+            gap: 10px;
+        }
+        .productcomponent > p {
+            margin: 2;
+        }
+        .productcomponent > a {
+            margin: 5;
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 20;
+        }
+        .header > h1 {
+            margin-bottom: 5;
+            font-size: 60;
+        }
+        .header > a {
+            margin-bottom: 3;
+        }
+    </style>
+    <script>
+    function namesearchredirec() {
+    window.location.href = \"http://localhost:8080/customers/findbyname/\"+document.querySelectorAll('#name')[0].value;
+    }
+    function emailsearchredirec() {
+    window.location.href = \"http://localhost:8080/customers/findbyemail/\"+document.querySelectorAll('#email')[0].value;
+    }
+    function phonenumbersearchredirec() {
+        window.location.href = \"http://localhost:8080/customers/findbyphonenumber/\"+document.querySelectorAll('#phonenumber')[0].value;
+    }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>ALL PRODUCTS</h1>
+
+    <div th:switch="${productlist.empty}">
+        <div th:case="true">
+            <h2>No Products found. Create some via Postman!</h2>
+        </div>
+
+        <div th:case="false">
+            <a href="products/names/sorted"><button>Sort by Name</button></a>
+            <a href="products/sellers/sorted"><button>Sort by Seller</button></a>
+            <a href="/products"><button>Default ID Sort</button></a>
+        </div>
+    </div>
+
+</div>
+
+<div class="productpanel">
+    <div class="productcomponent" th:each="product:${productlist}">
+        <h2 th:text="${'Product ID: ' + product.productid}"></h2>
+        <p th:text="${'Name: ' + product.name}"></p>
+        <p th:text="${'Categories: ' + product.categories}"></p>
+        <p th:text="${'Price: ' + product.price}"></p>
+        <p th:text="${'Seller: ' + product.seller}"></p>
+<!--        childHTML.append(String.format("<a href=\"/products/%d\">View Product</a>", p.getProductid()));-->
+    </div>
+</div>
+
+<div class="searchpanel">
+
+<div class="inputrow">
+allHTML.append("<label for=\"name\">Name Search: </label>");
+allHTML.append("<input type=\"text\" id=\"name\" name=\"name\">");
+allHTML.append("<button onclick=\"namesearchredirec()\">Search</button>");
+allHTML.append("</div>");
+
+allHTML.append("<div class=\"inputrow\">");
+allHTML.append("<label for=\"email\">Email Search: </label>");
+allHTML.append("<input type=\"text\" id=\"email\" name=\"email\">");
+allHTML.append("<button onclick=\"emailsearchredirec()\">Search</button>");
+allHTML.append("</div>");
+
+allHTML.append("<div class=\"inputrow\">");
+allHTML.append("<label for=\"phonenumber\">Phone Number Search: </label>");
+allHTML.append("<input type=\"text\" id=\"phonenumber\" name=\"phonenumber\">");
+allHTML.append("<button onclick=\"phonenumbersearchredirec()\">Search</button>");
+allHTML.append("</div>");
+
+</div>
+</body>
+</html>
