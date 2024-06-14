@@ -14,8 +14,6 @@ import java.util.List;
 // Class that validate inputs for Products Creation
 @Component
 public class ProductValidator implements Validator{
-    // Logger to log invalid inputs
-    private final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     @Override
     public boolean supports(Class<?> className) {
@@ -32,27 +30,22 @@ public class ProductValidator implements Validator{
             // Validate name
             if (product.getName() == null || product.getName().isEmpty()) {
                 errors.reject("product.empty", "Name must not be empty for product at index : " + index);
-                logger.error("Name must not be empty for product at index " + index + " : " + product);
             }
             // Validate seller
             if (product.getSeller() == null || product.getSeller().isEmpty()) {
                 errors.reject("product.empty", "Seller must not be empty for product at index : " + index);
-                logger.error("Seller must not be empty for product at index " + index + " : " + product);
             }
             // Validate price
             if (product.getPrice() == 0) {
                 errors.reject("product.empty", "Price must not be null for product at index : " + index);
-                logger.error("Price must not be empty for product at index " + index + " : " + product);
             }
             // Validate description
             if (product.getDescription() == null || product.getDescription().isEmpty()) {
                 errors.reject("product.empty", "Description must not be null for product at index : " + index);
-                logger.error("Description must not be empty for product at index " + index + " : " + product);
             }
             // Validate description
             if (product.getCategories() == null || product.getCategories().length == 0) {
                 errors.reject("product.empty", "Categories must not be null for product at index : " + index);
-                logger.error("Categories must not be empty for product at index " + index + " : " + product);
             }
             index++;
         }
