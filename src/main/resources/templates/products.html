@@ -95,7 +95,7 @@
 
 </div>
 
-<div class="productpanel">
+<div th:if="${!productlist.empty}" class="productpanel">
     <div class="productcomponent" th:each="product:${productlist}">
         <h2 th:text="${'Product ID: ' + product.productid}"></h2>
         <p th:text="${'Name: ' + product.name}"></p>
@@ -106,26 +106,25 @@
     </div>
 </div>
 
-<div class="searchpanel">
+<div th:if="${!productlist.empty}" class="searchpanel">
 
-<div class="inputrow">
-allHTML.append("<label for=\"name\">Name Search: </label>");
-allHTML.append("<input type=\"text\" id=\"name\" name=\"name\">");
-allHTML.append("<button onclick=\"namesearchredirec()\">Search</button>");
-allHTML.append("</div>");
+    <div class="inputrow">
+        <label for=\"name\">Name Search: </label>
+        <input type="text" id=\"name\" name=\"name\">
+        <button onclick=\"namesearchredirec()\">Search</button>
+    </div>
+    <div class=\"inputrow\">
+        <label for=\"email\">Email Search: </label>
+        <input type=\"text\" id=\"email\" name=\"email\">
+        <button onclick=\"emailsearchredirec()\">Search</button>
+    </div>
 
-allHTML.append("<div class=\"inputrow\">");
-allHTML.append("<label for=\"email\">Email Search: </label>");
-allHTML.append("<input type=\"text\" id=\"email\" name=\"email\">");
-allHTML.append("<button onclick=\"emailsearchredirec()\">Search</button>");
-allHTML.append("</div>");
-
-allHTML.append("<div class=\"inputrow\">");
-allHTML.append("<label for=\"phonenumber\">Phone Number Search: </label>");
-allHTML.append("<input type=\"text\" id=\"phonenumber\" name=\"phonenumber\">");
-allHTML.append("<button onclick=\"phonenumbersearchredirec()\">Search</button>");
-allHTML.append("</div>");
-
+    <div class=\"inputrow\">
+        <label for=\"phonenumber\">Phone Number Search: </label>
+        <input type=\"text\" id=\"phonenumber\" name=\"phonenumber\">
+        <button onclick=\"phonenumbersearchredirec()\">Search</button>
+    </div>
 </div>
+
 </body>
 </html>
