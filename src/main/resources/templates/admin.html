@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,6 +10,43 @@
     <h1>This is the admin page :)</h1>
     <a href="/products">Go to products!</a>
     <a href="/logout">Logout</a>
+</div>
+
+<div>
+    <h1>Add Products</h1>
+    <form th:action="@{/products/multiple}" method="post">
+        <div>
+            <label for="products">Products (JSON format):</label>
+            <textarea id="products" name="productsJson" rows="20" cols="50" required></textarea>
+            <div th:if="${productsJsonError}">
+                <p th:text="${productsJsonError}">Error</p>
+            </div>
+        </div>
+        <div>
+            <label for="num">Number of Products:</label>
+            <input type="number" id="num" name="num" required />
+            <div th:if="${numError}">
+                <p th:text="${numError}">Error</p>
+            </div>
+        </div>
+        <div>
+            <button type="submit">Add Products</button>
+        </div>
+    </form>
+
+    <div th:if="${productErrors}">
+        <h2>Validation Errors:</h2>
+        <ul>
+            <li th:each="error : ${productErrors}" th:text="${error}"></li>
+        </ul>
+    </div>
+
+    <div th:if="${productlist}">
+        <h2>Products Added:</h2>
+        <ul>
+            <li th:each="product : ${productlist}" th:text="${product.name}">Product Name</li>
+        </ul>
+    </div>
 </div>
 
 </body>

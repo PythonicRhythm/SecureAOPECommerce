@@ -1,23 +1,24 @@
 package genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Entity.Product;
-import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Services.ProductService;
 import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Services.ProductServiceImpl;
 import genspark.example.MultiEnvironmentConfigurationforEcommerceSite.Validation.ProductValidator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
 
+import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -128,17 +129,49 @@ public class ProductController {
     // add multiple of same product(s) with validation
     // POST ... /products/multiple?num=5
     @PostMapping("/products/multiple")
-    public String addProducts(@Valid @RequestBody List<Product> products,
-                                    @RequestParam int num,
-                                    BindingResult result,
-                                     Model model){
-        validator.validate(products,result);
-        model.addAttribute("productlist", products);
-        if (!result.hasErrors()){
-            List<Product> listOfProducts = this.ps.addMutlipleProduct(products,num);
-            return "products";
+    public String addProducts(@RequestParam String productsJson,
+                              @RequestParam String num,
+                              Model model) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Product> products = null;
+        List<String> productErrors = new ArrayList<>();
+
+        try {
+            products = objectMapper.readValue(productsJson, new TypeReference<List<Product>>() {});
+        } catch (Exception e) {
+            model.addAttribute("productsJsonError", "Invalid product data format.");
+            return "admin";
         }
-        return "products";
+
+        int numberOfProducts;
+        try {
+            numberOfProducts = Integer.parseInt(num);
+            if (!(numberOfProducts > 0)){
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException e) {
+            model.addAttribute("numError", "Number of products must be a valid integer.");
+            return "admin";
+        }
+
+        if (products != null) {
+            BindingResult result = new BeanPropertyBindingResult(products, "products");
+            validator.validate(products, result);
+
+            if (result.hasErrors()) {
+                result.getAllErrors().forEach(error -> {
+                    productErrors.add(error.getDefaultMessage());
+                });
+                model.addAttribute("productErrors", productErrors);
+                return "admin";
+            } else {
+                List<Product> listOfProducts = this.ps.addMutlipleProduct(products, numberOfProducts);
+                model.addAttribute("productlist", listOfProducts);
+                return "admin";
+            }
+        }
+
+        return "admin";
     }
 
     // update product(s) with validation
