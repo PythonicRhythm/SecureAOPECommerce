@@ -190,9 +190,9 @@ public class ProductController {
     @DeleteMapping("/products/{productId}")
     public String deleteProduct(@PathVariable Long productId, Model model){
         this.ps.deleteProduct(productId);
+        List<Product> listOfProducts =  this.ps.getAllProducts();
+        model.addAttribute("productlist", listOfProducts);
         return "products";
     }
-
-
 
 }
